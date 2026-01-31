@@ -14,6 +14,20 @@ const projectsData = [
         link: "#"
     },
     {
+        title: "Linkedin Apply Bot",
+        category: "Development",
+        description: "definately not gonna explain this one :)",
+        tech: ["Puppeteer", "Typescript", "PostgreSQL"],
+        link: "https://github.com/Ketan-Pal/Linked-in-apply-bot"
+    },
+    {
+        title: "Custom - DBMS",
+        category: "Development",
+        description: "Making my own database management system to understand the inner workings of databases.",
+        tech: ["java", "postgresql", "mysql", "oracle", "sqlite"],
+        link: "https://github.com/Ketan-Pal/Custom-DBMS"
+    },
+    {
         title: "Automated Test Suite",
         category: "Testing",
         description: "End-to-end testing framework ensuring 99.9% reliability.",
