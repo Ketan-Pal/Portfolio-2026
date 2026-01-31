@@ -13,7 +13,7 @@ export default function LandingSection() {
             <div className={styles.imageWrapper}>
                 <div className={styles.imageContainer}>
                     <Image
-                        src="/hero-image.png"
+                        src="/hero.jpeg"
                         alt="Software Engineer"
                         width={600}
                         height={600}
