@@ -8,7 +8,7 @@ export default function ContactSection() {
                 <p className={styles.text}>
                     Open for opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
                 </p>
-                <a href="mailto:ketan@example.com" className={styles.button}>
+                <a href="mailto:ketanpal2002@gmail.com" className={styles.button}>
                     Say Hello
                 </a>
             </div>
