@@ -32,6 +32,25 @@
     line-height: 1.6;
 }
 
+.socialContainer {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.socialLink {
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialLink:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
 .imageWrapper {
     display: flex;
     justify-content: center;
