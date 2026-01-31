@@ -1,0 +1,49 @@
+.section {
+    padding: 8rem 0;
+    text-align: center;
+    background: var(--bg-off-white);
+    /* Full width background trick */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.container {
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.heading {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.text {
+    max-width: 60ch;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: var(--text-primary);
+    color: var(--bg-light);
+    border-radius: 999px;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    opacity: 0.8;
+}

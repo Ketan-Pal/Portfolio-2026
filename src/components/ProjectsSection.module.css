@@ -1,0 +1,152 @@
+.section {
+    background-color: #ffffff;
+    color: #111111;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 4rem 0 8rem 0;
+}
+
+.container {
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Expertise Cloud Layout */
+.expertiseWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.expertiseTitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #555;
+}
+
+.cloudContainer {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    /* Spread items like in the screenshot */
+    align-items: center;
+    gap: 1rem;
+
+    /* The Cloud Pill Shape */
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 999px;
+    padding: 2.5rem 4rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.filterButton {
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.filterButton:hover {
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.active {
+    /* Active state scaling like the 'selected' item in the cloud */
+    font-weight: 700;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Mobile Responsiveness for Cloud */
+@media (max-width: 768px) {
+    .expertiseWrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .cloudContainer {
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 2rem;
+        gap: 1rem;
+        border-radius: 2rem;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    min-height: 400px;
+    /* Prevent layout jump when switching */
+}
+
+.card {
+    background: #f9f9f9;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+    margin-bottom: 1.5rem;
+}
+
+.categoryTag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tech {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    background: #eee;
+    border-radius: 999px;
+    color: #444;
+}

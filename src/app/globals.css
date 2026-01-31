@@ -1,0 +1,49 @@
+:root {
+  /* Fooror-Inspired Theme: Purple Gradient & Yellow Accent */
+  --bg-gradient-start: #2a2a40;
+  /* Deep Blue-Purple */
+  --bg-gradient-end: #5a5a80;
+  /* Lighter Purple-Blue */
+
+  --bg-light: #2a2a40;
+  /* Fallback */
+  --bg-off-white: rgba(255, 255, 255, 0.1);
+  /* Glass effect */
+
+  --text-primary: #ffffff;
+  --text-secondary: #d0d0e0;
+
+  --accent: #FFD500;
+  /* Bright Yellow */
+  --button-text: #1a1a1a;
+
+  /* Spacing System */
+  --spacing-container: 1280px;
+  --spacing-section: 6rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-outfit), sans-serif;
+
+  /* Full page gradient background */
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  min-height: 100vh;
+
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
