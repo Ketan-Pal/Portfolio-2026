@@ -1,164 +1,224 @@
+/* ============================================
+   Projects Section — Midnight Aurora
+   ============================================ */
+
 .section {
-    background-color: #ffffff;
-    color: #111111;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    padding: 4rem 0 8rem 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 6rem 0 8rem 0;
+  /* Slightly different dark shade for visual separation */
+  background:
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(0, 212, 255, 0.03), transparent),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(120, 0, 255, 0.03), transparent),
+    var(--bg-secondary);
 }
 
 .container {
-    max-width: var(--spacing-container);
-    margin: 0 auto;
-    padding: 0 2rem;
+  max-width: var(--spacing-container);
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* Expertise Cloud Layout */
+/* ============================================
+   Sliding Pill Tab Filter
+   ============================================ */
+
 .expertiseWrapper {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    margin-bottom: 5rem;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
 }
 
 .expertiseTitle {
-    font-size: 1.5rem;
-    font-weight: 500;
-    white-space: nowrap;
-    color: #555;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
 }
 
-.cloudContainer {
-    flex: 1;
-    display: flex;
-    justify-content: space-around;
-    /* Spread items like in the screenshot */
-    align-items: center;
-    gap: 1rem;
+.tabContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
 
-    /* The Cloud Pill Shape */
-    background: #fafafa;
-    border: 1px solid #eee;
-    border-radius: 999px;
-    padding: 2.5rem 4rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+/* The sliding pill indicator */
+.tabIndicator {
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
+  height: calc(100% - 0.7rem);
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.3), 0 0 4px rgba(0, 212, 255, 0.2);
+  transition: left var(--transition-smooth), width var(--transition-smooth);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .filterButton {
-    background: transparent;
-    border: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #555;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-    position: relative;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
 }
 
 .filterButton:hover {
-    color: #000;
-    transform: translateY(-2px);
+  color: var(--text-primary);
 }
 
-.active {
-    /* Active state scaling like the 'selected' item in the cloud */
-    font-weight: 700;
-    color: #000;
-    transform: scale(1.1);
+.filterButton.active {
+  color: var(--bg-primary);
+  font-weight: 600;
 }
 
-/* Mobile Responsiveness for Cloud */
-@media (max-width: 768px) {
-    .expertiseWrapper {
-        flex-direction: column;
-        gap: 1.5rem;
-        align-items: center;
-        margin-bottom: 3rem;
-        width: 100%;
-    }
-
-    .expertiseTitle {
-        font-size: 1.25rem;
-    }
-
-    .cloudContainer {
-        width: 100%;
-        flex-wrap: wrap;
-        padding: 1.5rem;
-        gap: 0.75rem;
-        border-radius: 1.5rem;
-        justify-content: center;
-    }
-
-    .filterButton {
-        font-size: 0.95rem;
-        padding: 0.4rem 0.8rem;
-    }
-}
+/* ============================================
+   Project Cards Grid
+   ============================================ */
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    min-height: 400px;
-    /* Prevent layout jump when switching */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  min-height: 380px;
 }
 
 .card {
-    background: #f9f9f9;
-    padding: 2.5rem;
-    border-radius: 1.5rem;
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 2rem 2.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--bg-card-border);
+  transition: transform var(--transition-smooth),
+              border-color var(--transition-smooth),
+              box-shadow var(--transition-smooth);
+  cursor: default;
+  /* Fade-in for cards */
+  animation: cardFadeIn 0.4s ease-out both;
+}
+
+.card:nth-child(1) { animation-delay: 0ms; }
+.card:nth-child(2) { animation-delay: 80ms; }
+.card:nth-child(3) { animation-delay: 160ms; }
+.card:nth-child(4) { animation-delay: 240ms; }
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  transform: translateY(-6px);
+  border-color: var(--bg-card-hover-border);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 212, 255, 0.06);
 }
 
 .cardHeader {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .categoryTag {
-    display: inline-block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #888;
-    margin-bottom: 0.5rem;
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
 }
 
 .title {
-    font-size: 1.75rem;
-    font-weight: 600;
-    line-height: 1.2;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
 }
 
 .description {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
 }
 
 .techStack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .tech {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.85rem;
+  background: var(--accent-dim);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 999px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0 5rem 0;
+  }
+
+  .expertiseWrapper {
+    margin-bottom: 2.5rem;
+  }
+
+  .tabContainer {
+    flex-wrap: wrap;
+    border-radius: 1rem;
+    justify-content: center;
+    gap: 0.125rem;
+    padding: 0.3rem;
+  }
+
+  .tabIndicator {
+    border-radius: 0.75rem;
+  }
+
+  .filterButton {
     font-size: 0.85rem;
-    padding: 0.25rem 0.75rem;
-    background: #eee;
-    border-radius: 999px;
-    color: #444;
+    padding: 0.5rem 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

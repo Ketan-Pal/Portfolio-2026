@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import styles from "./ProjectsSection.module.css";
 
 const categories = ["Development", "Testing", "Data Analytics", "DevOps"];
@@ -59,6 +59,31 @@ const projectsData = [
 
 export default function ProjectsSection() {
     const [activeCategory, setActiveCategory] = useState("Development");
+    const tabContainerRef = useRef<HTMLDivElement>(null);
+    const tabRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+    const [indicatorStyle, setIndicatorStyle] = useState<{ left: string; width: string }>({
+        left: "0px",
+        width: "0px",
+    });
+
+    const updateIndicator = useCallback(() => {
+        const activeTab = tabRefs.current.get(activeCategory);
+        const container = tabContainerRef.current;
+        if (activeTab && container) {
+            const containerRect = container.getBoundingClientRect();
+            const tabRect = activeTab.getBoundingClientRect();
+            setIndicatorStyle({
+                left: `${tabRect.left - containerRect.left}px`,
+                width: `${tabRect.width}px`,
+            });
+        }
+    }, [activeCategory]);
+
+    useEffect(() => {
+        updateIndicator();
+        window.addEventListener("resize", updateIndicator);
+        return () => window.removeEventListener("resize", updateIndicator);
+    }, [updateIndicator]);
 
     const filteredProjects = projectsData.filter(
         (project) => project.category === activeCategory
@@ -68,13 +93,24 @@ export default function ProjectsSection() {
         <section className={styles.section} id="projects">
             <div className={styles.container}>
 
-                {/* Expertise Cloud Filter */}
+                {/* Sliding Pill Tab Filter */}
                 <div className={styles.expertiseWrapper}>
                     <h2 className={styles.expertiseTitle}>My Expertise</h2>
-                    <div className={styles.cloudContainer}>
+                    <div className={styles.tabContainer} ref={tabContainerRef}>
+                        {/* The sliding pill */}
+                        <div
+                            className={styles.tabIndicator}
+                            style={{
+                                left: indicatorStyle.left,
+                                width: indicatorStyle.width,
+                            }}
+                        />
                         {categories.map((category) => (
                             <button
                                 key={category}
+                                ref={(el) => {
+                                    if (el) tabRefs.current.set(category, el);
+                                }}
                                 onClick={() => setActiveCategory(category)}
                                 className={`${styles.filterButton} ${activeCategory === category ? styles.active : ""
                                     }`}
@@ -85,7 +121,7 @@ export default function ProjectsSection() {
                     </div>
                 </div>
 
-                <div className={styles.grid}>
+                <div className={styles.grid} key={activeCategory}>
                     {filteredProjects.map((project, index) => (
                         <div key={index} className={styles.card}>
                             <div className={styles.cardHeader}>

@@ -1,49 +1,78 @@
+/* ============================================
+   Contact Section — Midnight Aurora
+   ============================================ */
+
 .section {
-    padding: 8rem 0;
-    text-align: center;
-    background: var(--bg-off-white);
-    /* Full width background trick */
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+  padding: 8rem 0;
+  text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  /* Subtle glass divider */
+  background: var(--glass-bg);
+  border-top: 1px solid var(--glass-border);
 }
 
 .container {
-    max-width: var(--spacing-container);
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+  max-width: var(--spacing-container);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .heading {
-    font-size: 3rem;
-    font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 .text {
-    max-width: 60ch;
-    color: var(--text-secondary);
-    font-size: 1.25rem;
-    line-height: 1.6;
+  max-width: 55ch;
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.7;
 }
 
+/* CTA Button with glow */
 .button {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background: var(--text-primary);
-    color: var(--bg-light);
-    border-radius: 999px;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-    margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-radius: 999px;
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  margin-top: 1.5rem;
+  transition: transform var(--transition-smooth),
+              box-shadow var(--transition-smooth),
+              background var(--transition-smooth);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
 }
 
 .button:hover {
-    opacity: 0.8;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: #1ae8ff;
+}
+
+/* ---- Mobile ---- */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .text {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
 }
