@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google"; // Using Outfit for modern/premium look
+import { Outfit } from "next/font/google";
 import "./globals.css";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -9,8 +10,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Software Engineer",
-  description: "A premium portfolio showcasing software engineering expertise.",
+  title: "Ketan Pal | Software Engineer",
+  description: "Junior Software Engineer specializing in backend development with Java, Spring Boot, and microservices architecture.",
 };
 
 export default function RootLayout({
@@ -19,9 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body className={`${outfit.variable}`}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

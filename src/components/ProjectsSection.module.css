@@ -1,5 +1,5 @@
 /* ============================================
-   Projects Section — Midnight Aurora
+   Projects Section — Theme-Aware
    ============================================ */
 
 .section {
@@ -10,11 +10,11 @@
   margin-left: -50vw;
   margin-right: -50vw;
   padding: 6rem 0 8rem 0;
-  /* Slightly different dark shade for visual separation */
   background:
-    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(0, 212, 255, 0.03), transparent),
-    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(120, 0, 255, 0.03), transparent),
-    var(--bg-secondary);
+    radial-gradient(ellipse 50% 40% at 80% 20%, var(--section-overlay-1), transparent),
+    radial-gradient(ellipse 60% 50% at 20% 80%, var(--section-overlay-2), transparent),
+    var(--section-bg);
+  transition: background 0.4s ease;
 }
 
 .container {
@@ -50,22 +50,23 @@
   gap: 0.25rem;
   padding: 0.35rem;
   border-radius: 999px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: var(--tab-bg);
+  border: 1px solid var(--tab-border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
-/* The sliding pill indicator */
 .tabIndicator {
   position: absolute;
   top: 0.35rem;
   left: 0;
   height: calc(100% - 0.7rem);
   border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.3), 0 0 4px rgba(0, 212, 255, 0.2);
-  transition: left var(--transition-smooth), width var(--transition-smooth);
+  background: var(--tab-active-bg);
+  box-shadow: var(--accent-glow);
+  transition: left var(--transition-smooth), width var(--transition-smooth),
+              background 0.4s ease, box-shadow 0.4s ease;
   z-index: 0;
   pointer-events: none;
 }
@@ -78,7 +79,7 @@
   font-family: var(--font-outfit), 'Outfit', sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--tab-text);
   cursor: pointer;
   padding: 0.65rem 1.5rem;
   border-radius: 999px;
@@ -91,7 +92,7 @@
 }
 
 .filterButton.active {
-  color: var(--bg-primary);
+  color: var(--tab-active-text);
   font-weight: 600;
 }
 
@@ -115,9 +116,9 @@
   border: 1px solid var(--bg-card-border);
   transition: transform var(--transition-smooth),
               border-color var(--transition-smooth),
-              box-shadow var(--transition-smooth);
+              box-shadow var(--transition-smooth),
+              background 0.4s ease;
   cursor: default;
-  /* Fade-in for cards */
   animation: cardFadeIn 0.4s ease-out both;
 }
 
@@ -125,6 +126,7 @@
 .card:nth-child(2) { animation-delay: 80ms; }
 .card:nth-child(3) { animation-delay: 160ms; }
 .card:nth-child(4) { animation-delay: 240ms; }
+.card:nth-child(5) { animation-delay: 320ms; }
 
 @keyframes cardFadeIn {
   from {
@@ -140,7 +142,7 @@
 .card:hover {
   transform: translateY(-6px);
   border-color: var(--bg-card-hover-border);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 212, 255, 0.06);
+  box-shadow: var(--bg-card-hover-shadow);
 }
 
 .cardHeader {
@@ -152,7 +154,7 @@
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent);
+  color: var(--category-tag);
   opacity: 0.7;
   margin-bottom: 0.5rem;
 }
@@ -180,11 +182,12 @@
 .tech {
   font-size: 0.8rem;
   padding: 0.3rem 0.85rem;
-  background: var(--accent-dim);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  background: var(--tech-bg);
+  border: 1px solid var(--tech-border);
   border-radius: 999px;
-  color: var(--accent);
+  color: var(--tech-text);
   font-weight: 500;
+  transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
 /* ============================================

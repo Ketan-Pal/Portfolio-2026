@@ -1,5 +1,5 @@
 /* ============================================
-   Landing / Hero Section — Midnight Aurora
+   Landing / Hero Section — Theme-Aware
    ============================================ */
 
 .container {
@@ -10,11 +10,9 @@
   max-width: var(--spacing-container);
   margin: 0 auto;
   align-items: center;
-  padding: 2rem 2rem;
+  padding: 5rem 2rem 2rem 2rem;
   gap: 2rem;
 }
-
-/* ---- Text Content ---- */
 
 .content {
   display: flex;
@@ -30,8 +28,7 @@
   letter-spacing: -0.04em;
   line-height: 1;
   color: var(--text-primary);
-  /* Subtle text glow */
-  text-shadow: 0 0 60px rgba(0, 212, 255, 0.08);
+  transition: color 0.4s ease;
 }
 
 .summary {
@@ -39,6 +36,7 @@
   color: var(--text-secondary);
   max-width: 48ch;
   line-height: 1.7;
+  transition: color 0.4s ease;
 }
 
 /* ---- Social Links ---- */
@@ -64,7 +62,7 @@
 .socialLink:hover {
   color: var(--accent);
   transform: translateY(-3px);
-  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+  filter: drop-shadow(0 0 8px currentColor);
 }
 
 /* ---- Hero Image ---- */
@@ -82,14 +80,10 @@
   height: 360px;
   border-radius: 50%;
   overflow: hidden;
-  /* Cyan glow ring */
-  border: 3px solid rgba(0, 212, 255, 0.25);
-  box-shadow:
-    0 0 30px rgba(0, 212, 255, 0.15),
-    0 0 60px rgba(0, 212, 255, 0.08),
-    inset 0 0 30px rgba(0, 0, 0, 0.3);
-  /* Pulse animation */
+  border: 3px solid var(--img-border);
+  box-shadow: var(--img-glow-1);
   animation: glowPulse 4s ease-in-out infinite;
+  transition: border-color 0.4s ease;
 }
 
 .heroImage {
@@ -99,21 +93,12 @@
   height: 100%;
 }
 
-/* Glow pulse keyframes */
 @keyframes glowPulse {
   0%, 100% {
-    box-shadow:
-      0 0 30px rgba(0, 212, 255, 0.15),
-      0 0 60px rgba(0, 212, 255, 0.08),
-      inset 0 0 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(0, 212, 255, 0.25);
+    box-shadow: var(--img-glow-1);
   }
   50% {
-    box-shadow:
-      0 0 40px rgba(0, 212, 255, 0.25),
-      0 0 80px rgba(0, 212, 255, 0.12),
-      inset 0 0 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: var(--img-glow-2);
   }
 }
 
@@ -123,7 +108,7 @@
   .container {
     grid-template-columns: 1fr;
     text-align: center;
-    padding-top: 4rem;
+    padding-top: 5rem;
     gap: 3rem;
     min-height: auto;
     padding-bottom: 4rem;

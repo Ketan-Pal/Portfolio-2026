@@ -6,55 +6,100 @@ import styles from "./ProjectsSection.module.css";
 const categories = ["Development", "Testing", "Data Analytics", "DevOps"];
 
 const projectsData = [
+    // ---- Development ----
     {
-        title: "E-Commerce Dashboard",
+        title: "Consumer Consent Service",
         category: "Development",
-        description: "A comprehensive dashboard for managing inventory and sales analytics.",
-        tech: ["Next.js", "TypeScript", "PostgreSQL"],
-        link: "#"
+        description:
+            "Modernized legacy Java 8 codebase to newer Java version. Migrated database from MongoDB to PostgreSQL ensuring stable production rollout with SLA-compliant performance.",
+        tech: ["Java", "Spring Boot", "PostgreSQL", "MongoDB"],
+        link: "#",
+    },
+    {
+        title: "MY Data — GDPR Compliance",
+        category: "Development",
+        description:
+            "Resolved high-severity production vulnerability within 48 hours. Built in-house catalog portal with cross-project integration, replacing manual Excel-based processes.",
+        tech: ["Java", "Spring Boot", "Microservices"],
+        link: "#",
     },
     {
         title: "Linkedin Apply Bot",
         category: "Development",
         description: "definately not gonna explain this one :)",
-        tech: ["Puppeteer", "Typescript", "PostgreSQL"],
-        link: "https://github.com/Ketan-Pal/Linked-in-apply-bot"
+        tech: ["Puppeteer", "TypeScript", "PostgreSQL"],
+        link: "https://github.com/Ketan-Pal/Linked-in-apply-bot",
     },
     {
         title: "Custom - DBMS",
         category: "Development",
-        description: "Making my own database management system to understand the inner workings of databases.",
-        tech: ["java", "postgresql", "mysql", "oracle", "sqlite"],
-        link: "https://github.com/Ketan-Pal/Custom-DBMS"
+        description:
+            "Making my own database management system to understand the inner workings of databases.",
+        tech: ["Java", "PostgreSQL", "MySQL", "Oracle", "SQLite"],
+        link: "https://github.com/Ketan-Pal/Custom-DBMS",
     },
+    {
+        title: "Portfolio 2026",
+        category: "Development",
+        description:
+            "High-performance personal website with dual theme system, glassmorphism effects, and scroll animations.",
+        tech: ["Next.js", "TypeScript", "CSS Modules"],
+        link: "#",
+    },
+
+    // ---- Testing ----
     {
         title: "Automated Test Suite",
         category: "Testing",
-        description: "End-to-end testing framework ensuring 99.9% reliability.",
-        tech: ["Cypress", "Jest", "CI/CD"],
-        link: "#"
+        description:
+            "End-to-end testing framework ensuring 99.9% reliability across microservices with comprehensive test coverage.",
+        tech: ["JUnit", "TestNG", "Selenium", "CI/CD"],
+        link: "#",
     },
     {
-        title: "Sales Data Pipeline",
+        title: "Security Vulnerability Resolution",
+        category: "Testing",
+        description:
+            "Identified and resolved critical production security vulnerabilities. Completed full development and testing cycle within 48 hours of identification.",
+        tech: ["Checkmarx", "Blackduck", "SonarQube"],
+        link: "#",
+    },
+
+    // ---- Data Analytics ----
+    {
+        title: "Data Retention Automation",
         category: "Data Analytics",
-        description: "Real-time data processing pipeline for sales visualization.",
-        tech: ["Python", "Pandas", "Tableau"],
-        link: "#"
+        description:
+            "Created data retention policy batch jobs to ensure policy-compliant lifecycle management of sensitive consumer data.",
+        tech: ["Java", "Spring Batch", "PostgreSQL"],
+        link: "#",
     },
     {
-        title: "Kubernetes Cluster",
+        title: "Data Modeling & Migration",
+        category: "Data Analytics",
+        description:
+            "Converted unstructured MongoDB data into relational tables to improve integrity, queryability, and reporting capabilities.",
+        tech: ["PostgreSQL", "SQL", "Data Modeling"],
+        link: "#",
+    },
+
+    // ---- DevOps ----
+    {
+        title: "CI/CD Pipeline",
         category: "DevOps",
-        description: "Scalable infrastructure setup with automated scaling policies.",
-        tech: ["K8s", "Docker", "Terraform"],
-        link: "#"
+        description:
+            "Configured and maintained continuous integration and deployment pipelines for microservices architecture with automated quality gates.",
+        tech: ["Jenkins", "Cloud Foundry", "Maven"],
+        link: "#",
     },
     {
-        title: "Portfolio 2024",
-        category: "Development",
-        description: "High-performance personal website with advanced animations.",
-        tech: ["Next.js", "Framer Motion"],
-        link: "#"
-    }
+        title: "Code Quality & Security",
+        category: "DevOps",
+        description:
+            "Integrated static analysis and security scanning tools into the development workflow, maintaining code quality standards across teams.",
+        tech: ["SonarQube", "Blackduck", "Checkmarx", "Git"],
+        link: "#",
+    },
 ];
 
 export default function ProjectsSection() {
@@ -90,14 +135,12 @@ export default function ProjectsSection() {
     );
 
     return (
-        <section className={styles.section} id="projects">
+        <section className={styles.section}>
             <div className={styles.container}>
-
                 {/* Sliding Pill Tab Filter */}
                 <div className={styles.expertiseWrapper}>
                     <h2 className={styles.expertiseTitle}>My Expertise</h2>
                     <div className={styles.tabContainer} ref={tabContainerRef}>
-                        {/* The sliding pill */}
                         <div
                             className={styles.tabIndicator}
                             style={{
@@ -112,8 +155,9 @@ export default function ProjectsSection() {
                                     if (el) tabRefs.current.set(category, el);
                                 }}
                                 onClick={() => setActiveCategory(category)}
-                                className={`${styles.filterButton} ${activeCategory === category ? styles.active : ""
-                                    }`}
+                                className={`${styles.filterButton} ${
+                                    activeCategory === category ? styles.active : ""
+                                }`}
                             >
                                 {category}
                             </button>

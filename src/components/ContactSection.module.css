@@ -1,5 +1,5 @@
 /* ============================================
-   Contact Section — Midnight Aurora
+   Contact Section — Theme-Aware
    ============================================ */
 
 .section {
@@ -11,9 +11,9 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  /* Subtle glass divider */
-  background: var(--glass-bg);
-  border-top: 1px solid var(--glass-border);
+  background: var(--contact-bg);
+  border-top: 1px solid var(--contact-border);
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
 .container {
@@ -31,6 +31,7 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-primary);
+  transition: color 0.4s ease;
 }
 
 .text {
@@ -38,14 +39,14 @@
   color: var(--text-secondary);
   font-size: 1.15rem;
   line-height: 1.7;
+  transition: color 0.4s ease;
 }
 
-/* CTA Button with glow */
 .button {
   display: inline-block;
   padding: 1rem 3rem;
   background: var(--accent);
-  color: var(--bg-primary);
+  color: var(--accent-text-on);
   border-radius: 999px;
   font-family: var(--font-outfit), 'Outfit', sans-serif;
   font-weight: 600;
@@ -54,17 +55,15 @@
   margin-top: 1.5rem;
   transition: transform var(--transition-smooth),
               box-shadow var(--transition-smooth),
-              background var(--transition-smooth);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+              background 0.4s ease,
+              color 0.4s ease;
+  box-shadow: var(--accent-glow);
 }
 
 .button:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
-  background: #1ae8ff;
+  box-shadow: var(--accent-glow-strong);
 }
-
-/* ---- Mobile ---- */
 
 @media (max-width: 768px) {
   .section {
