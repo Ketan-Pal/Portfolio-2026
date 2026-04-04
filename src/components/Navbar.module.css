@@ -86,6 +86,28 @@
   width: 100%;
 }
 
+.resumeButton {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  transition: all var(--transition-smooth);
+}
+
+.resumeButton:hover {
+  background: var(--accent);
+  color: var(--accent-text-on);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--accent-glow);
+}
+
 /* ---- Theme Toggle ---- */
 
 .themeToggle {

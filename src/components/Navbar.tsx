@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "./ThemeProvider";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon, FaDownload } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import { useState, useEffect } from "react";
 
@@ -36,6 +36,10 @@ export default function Navbar() {
                             {link.label}
                         </a>
                     ))}
+                    <a href="/Ketan_Pal_Resume.pdf" download="Ketan_Pal_Resume.pdf" className={styles.resumeButton}>
+                        <span>Resume</span>
+                        <FaDownload size={12} />
+                    </a>
                 </div>
 
                 <button
