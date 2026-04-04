@@ -31,8 +31,11 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
             document.documentElement.setAttribute("data-theme", "dark");
         }
         
-        // Remove the antigravity scroll lock if it was injected
+        // Remove any scroll lock that was injected
         document.body.classList.remove("antigravity-scroll-lock");
+        document.documentElement.classList.remove("antigravity-scroll-lock");
+        document.body.style.removeProperty("overflow");
+        document.documentElement.style.removeProperty("overflow");
         
         setMounted(true);
     }, []);
