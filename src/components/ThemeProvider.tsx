@@ -11,7 +11,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType>({
     theme: "dark",
-    toggleTheme: () => {},
+    toggleTheme: () => { },
 });
 
 export function useTheme() {
@@ -28,15 +28,15 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
             setTheme(saved);
             document.documentElement.setAttribute("data-theme", saved);
         } else {
-            document.documentElement.setAttribute("data-theme", "dark");
+            document.documentElement.setAttribute("data-theme", "light");
         }
-        
+
         // Remove any scroll lock that was injected
         document.body.classList.remove("antigravity-scroll-lock");
         document.documentElement.classList.remove("antigravity-scroll-lock");
         document.body.style.removeProperty("overflow");
         document.documentElement.style.removeProperty("overflow");
-        
+
         setMounted(true);
     }, []);
 
